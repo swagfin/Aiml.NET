@@ -1,9 +1,17 @@
 # Aiml.NET
 Aiml.NET is a .NET library for running chat robots using AIML [Artificial Intelligence Markup Language](http://www.aiml.foundation/).
 
-## Example usage
+## Install 
 
-```Csharp
+*NuGet Package*
+```
+Install-Package Aiml.NET
+```
+https://nuget.org/packages/Aiml.NET
+
+## Usage Example
+
+```cs
 using Aiml.NET;
 
 var bot = new Bot(botPath);
