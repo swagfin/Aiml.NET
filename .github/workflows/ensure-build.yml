@@ -16,7 +16,7 @@ jobs:
         dotnet-version: 3.1.x
     - name: Restore Nuget Packages
       run: dotnet restore Aiml.NET.sln
-    - name: Build Project
+    - name: Build Solution
       run: dotnet build Aiml.NET.sln --no-restore
     - name: Test
       run: dotnet test Aiml.NET.sln --no-build --verbosity normal
