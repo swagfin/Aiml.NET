@@ -8,10 +8,10 @@
     <Company />
     <Authors>Wainaina George</Authors>
     <Copyright>© 2023 Crudsoft Technologies</Copyright>
-    <PackageProjectUrl>https://github.com/Swagfin/AIML</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Swagfin/Aiml.NET</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/Swagfin/AIML</RepositoryUrl>
-    <PackageTags>AIML;AI;</PackageTags>
+    <RepositoryUrl>https://github.com/Swagfin/Aiml.NET</RepositoryUrl>
+    <PackageTags>AIML;AI;chatbot;aimlbot;aiml-bots;aiml2;chatbot-framework</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
