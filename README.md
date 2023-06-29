@@ -29,3 +29,24 @@ while (true)
 	Console.WriteLine($"{bot.Properties.GetValueOrDefault("name", "Robot")}: {response}");
 }
 ```
+
+## AIML Example File
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2">
+  <category>
+    <pattern>HI</pattern>
+    <template>
+      <random>
+        <li>Hello!</li>
+        <li>Hi there!</li>
+        <li>Greetings!</li>
+      </random>
+    </template>
+  </category>
+</aiml>
+
+```
+
+### Learn More
+ You can learn and code your own AIML Files from [PandoraBots Platform](https://home.pandorabots.com/home.html) or quickly jump into  [AIML Syntax Reference](https://www.pandorabots.com/docs/aiml-reference/)
