@@ -6,6 +6,56 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="aiml\helloworld.aiml" />
+    <None Remove="botpredicates.json" />
+    <None Remove="config.json" />
+    <None Remove="denormal.json" />
+    <None Remove="gender.json" />
+    <None Remove="maps\tomorrow.txt" />
+    <None Remove="normal.json" />
+    <None Remove="person.json" />
+    <None Remove="person2.json" />
+    <None Remove="predicates.json" />
+    <None Remove="sets\weekday.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="aiml\helloworld.aiml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="botpredicates.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="denormal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gender.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="maps\tomorrow.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="normal.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="person.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="person2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="predicates.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sets\weekday.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Aiml.NET\Aiml.NET.csproj" />
   </ItemGroup>
 
