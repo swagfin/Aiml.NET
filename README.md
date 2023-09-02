@@ -48,5 +48,9 @@ while (true)
 
 ```
 
-### Learn More
- You can learn and code your own AIML Files from [PandoraBots Platform](https://home.pandorabots.com/home.html) or quickly jump into  [AIML Syntax Reference](https://www.pandorabots.com/docs/aiml-reference/)
+### Resources
+ You can learn and code your own AIML Files from [PandoraBots Platform](https://home.pandorabots.com/home.html) 
+ or quickly jump into;
+ 1. [AIML Syntax Reference](https://www.pandorabots.com/docs/aiml-reference/)
+ 2. [AIML ALICE 2.0 Training Files](https://code.google.com/archive/p/aiml-en-us-foundation-alice2/)
+ 3. [Free A.L.I.C.E. AIML Training Set](https://code.google.com/archive/p/aiml-en-us-foundation-alice/)
