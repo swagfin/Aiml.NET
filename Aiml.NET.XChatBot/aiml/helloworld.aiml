@@ -2,7 +2,12 @@
 <aiml version='2.0'>
 	<category>
 		<pattern>HELLO ^</pattern>
-		<template>Hello world!</template>
+		<template>
+			<think>
+				<set name="topic">greetings</set>
+			</think>
+			Hello world!
+		</template>
 	</category>
 	<category>
 		<pattern>HI ^</pattern>

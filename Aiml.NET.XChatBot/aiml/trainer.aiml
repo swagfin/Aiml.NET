@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<aiml version='2.0'>
+
+	<category>
+		<pattern>BAD ANSWER</pattern>
+		<template>
+			<think>
+				<set name="ThatQuestion">
+					<input index="2"/>
+				</set>
+				<set name="ThatQuestionTopic">
+					<get name="topic"/>
+				</set>
+			</think>
+			OK.  You said "<get name="ThatQuestion"/>" and I replied "<response/>".
+			\r\nWhat should I say instead?
+			<think>
+				<set name="topic">BotTrainingProgramThatQuestionAnswer</set>
+			</think>
+			<srai/>
+		</template>
+	</category>
+	
+	<category>
+		<pattern>training</pattern>
+		<template>
+			<think>
+				<set name="topic">BotTrainingProgramThatQuestion</set>
+			</think>
+			Well, looks who wants to train me
+			<srai/>
+		</template>
+	</category>
+	
+	<topic name="BotTrainingProgramThatQuestion">
+
+		<category>
+			<pattern>*</pattern>
+			<template>
+				<think>
+					<set name="ThatQuestion">
+						<star/>
+					</set>
+				</think>
+
+				<condition name="ThatQuestion">
+					<li value="unknown">What do you want to train me ?</li>
+					<li>
+						So when someone asks &#8220;<get name="ThatQuestion" />&#8221;, i should say what ?
+						<think>
+							<set name="topic">BotTrainingProgramThatQuestionAnswer</set>
+						</think>
+						<srai/>
+					</li>
+				</condition>
+			</template>
+		</category>
+
+	</topic>
+
+	<topic name="BotTrainingProgramThatQuestionAnswer">
+		<category>
+			<pattern>*</pattern>
+			<template>
+				<think>
+					<set name="ThatQuestionAnswer">
+						<star/>
+					</set>
+				</think>
+				<condition name="ThatQuestionAnswer">
+					<li value="unknown">Specify the question answer</li>
+					<li>
+						Got it, when am asked &#8220;<get name="ThatQuestion" />&#8221;, i will now respond &#8220;<get name="ThatQuestionAnswer" />&#8221; under topic: <get name="ThatQuestionTopic" />
+						<learnf>
+							<category>	
+								<pattern>
+									<eval>
+										<get name="ThatQuestion" />
+									</eval>
+								</pattern>
+								<template>
+									<eval>
+										<get name="ThatQuestionAnswer" />
+									</eval>
+								</template>
+								</category>
+						</learnf>
+					</li>
+				</condition>
+			</template>
+		</category>
+	</topic>
+</aiml>
