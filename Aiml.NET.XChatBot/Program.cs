@@ -6,9 +6,11 @@ namespace Aiml.NET.XChatBot
 {
     internal class Program
     {
+        private static string _currentTopic = string.Empty;
+
         /*
-        *  THIS IS A SIMPLE CHAT BOT TO PLAY AROUND WITH IT
-        */
+*  THIS IS A SIMPLE CHAT BOT TO PLAY AROUND WITH IT
+*/
         static void Main(string[] args)
         {
             try
@@ -35,6 +37,15 @@ namespace Aiml.NET.XChatBot
                         message = message.Substring(7);
                     }
                     Response botResponse = bot.Chat(new Request(message, user, bot), trace);
+
+                    //Log Topic Changed
+                    if (!_currentTopic.Equals(user.Topic))
+                    {
+                        _currentTopic = user.Topic;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($":: topic changed to: [{_currentTopic}] ::");
+                        Console.ResetColor();
+                    }
                     //replace line breaks with Console Line Breaks
                     string[] lines = botResponse.ToString().Split(new[] { "\\r\\n" }, StringSplitOptions.None);
                     string responseString = string.Join(Environment.NewLine, lines);

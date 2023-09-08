@@ -29,7 +29,15 @@ namespace Aiml.NET
                 XmlNode node = this.Node.Clone();
                 this.ProcessXml(node, process);
 
-                // Learn the result.
+                // Check if topic exist and check it's Name attribute, Assign if Not specified
+                XmlNode topicNode = node.SelectSingleNode("/topic");
+                if (topicNode != null && topicNode.Attributes["name"] == null)
+                {
+                    XmlAttribute nameAttribute = topicNode.OwnerDocument.CreateAttribute("name");
+                    nameAttribute.Value = process?.User?.Topic ?? "*";
+                    topicNode.Attributes.Append(nameAttribute);
+                }
+                // Learn
                 process.Log(LogLevel.Diagnostic, $"In element <learn>: learning new category for {process.User.ID}: {node.OuterXml}");
                 AimlLoader loader = new AimlLoader(process.Bot);
                 loader.LoadAIML(process.User.Graphmaster, node, null);
