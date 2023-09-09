@@ -19,6 +19,6 @@
 	"SetsDirectory": "sets",
 	"MapsDirectory": "maps",
 	//"Locale": "en-AU",
-	"LearnfFile": "aiml/learnf.aiml",
+	"LearnfFile": "learnf.aiml",
 	"UnbindPredicatesWithDefaultValue": false
 }

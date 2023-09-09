@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="aiml\badanswer.aiml" />
+    <None Remove="aiml\default.aiml" />
     <None Remove="aiml\helloworld.aiml" />
     <None Remove="botpredicates.json" />
     <None Remove="config.json" />
@@ -20,6 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="aiml\badanswer.aiml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="aiml\default.aiml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="aiml\helloworld.aiml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

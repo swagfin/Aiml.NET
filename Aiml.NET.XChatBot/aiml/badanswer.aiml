@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<aiml version='2.0'>
+
+	<category>
+		<pattern>BAD ANSWER</pattern>
+		<template>
+			<think>
+				<set name="ThatQuestion">
+					<input index="2"/>
+				</set>
+				<set name="ThatQuestionTopic">
+					<get name="topic"/>
+				</set>
+			</think>
+			<!--check the topic-->
+			<condition name="ThatQuestionTopic">
+				<li value="unknown">
+					Hmmm, i can't learn without topic context
+					<think>
+						<set name="topic">*</set>
+					</think>
+				</li>
+				<li>
+					OK.  You said "<get name="ThatQuestion"/>" and I replied "<response/>".
+					<think>
+						<set name="topic">BotTrainingProgramThatQuestionAnswer</set>
+					</think>
+					<srai>SAY</srai>
+				</li>
+			</condition>
+
+		</template>
+	</category>
+
+	<topic name="BotTrainingProgramThatQuestionAnswer">
+		<category>
+			<pattern>SAY ^</pattern>
+			<template>
+				<think>
+					<set name="ThatQuestionAnswer">
+						<star/>
+					</set>
+				</think>
+				<condition name="ThatQuestionAnswer">
+					<li value="nil">\r\nWhat should I say instead? Reply starting with "Say "</li>
+					<li>
+						<!--Set the Topic to what User was In Before Learn-->
+						<think>
+							<set name="topic">
+								<get name="ThatQuestionTopic" />
+							</set>
+						</think>
+						<!--Tell Bot to Learn-->
+						<learnf>
+							<topic>
+								<category>
+									<pattern>
+										<eval>
+											<get name="ThatQuestion" />
+										</eval>
+									</pattern>
+									<template>
+										<eval>
+											<get name="ThatQuestionAnswer" />
+										</eval>
+									</template>
+								</category>
+							</topic>
+						</learnf>
+						<!--Finnaly show success learning message-->
+						Got it, when am asked &#8220;<get name="ThatQuestion" />&#8221;, i will now respond &#8220;<get name="ThatQuestionAnswer" />&#8221; under topic: <get name="ThatQuestionTopic" />
+					</li>
+				</condition>
+			</template>
+		</category>
+	</topic>
+</aiml>
